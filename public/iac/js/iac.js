@@ -5,7 +5,7 @@
  *
  * Created by Hakim El Hattab, http://hakim.se
  */
-(function(){
+// (function(){
 
 	var defaults = {
 		closedText : 'Support Anna',
@@ -34,6 +34,8 @@
 		TAG_HEIGHT = 30,
 		TAG_WIDTH = 200,
 		MAX_STRAIN = 40,
+
+		ALLREADY_LOADED = false,
 
 		// Factor of page height that needs to be dragged for the
 		// curtain to fall
@@ -115,7 +117,7 @@
 		dom.curtain = document.querySelector( '.forkit-curtain' );
 		dom.closeButton = document.querySelector( '.forkit-curtain .close-button' );
 
-		loadjscssfile(options.src + '/css/forkit.css', 'css');
+		loadjscssfile(options.src + '/css/iac.css', 'css');
 
 		// customizeCss();
 
@@ -198,6 +200,7 @@
 	}
 
 	function open() {
+		installOnCurtain();
 		dragging = false;
 		state = STATE_OPENED;
 	}
@@ -382,16 +385,20 @@
 				window.msRequestAnimationFrame		||
 				function( callback ){
 					window.setTimeout(callback, 1000 / 60);
-				};
+					};
 	})();
+
 
 	initialize();
 
-})();
+// })();
 
 
-	// function customizeCss () {
-	// 	var csstag = '<style type="text/css"> .redbold{ color:#f00; font-weight:bold;} </style>';
+	function installOnCurtain() {
+		if(ALLREADY_LOADED) return false;
+		// Install Addthis Sharing buttons
+		loadjscssfile('http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-50269ca25571eb1f', 'js');
 
-	// 	document.getElementsByTagName("head")[0].appendChild(csstag);
-	// }
+		// Install Twitter Feed
+		loadjscssfile('http://widgets.twimg.com/j/2/widget.js', 'js');
+	}
