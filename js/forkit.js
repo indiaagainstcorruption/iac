@@ -7,6 +7,23 @@
  */
 (function(){
 
+	var defaults = {
+		closedText : 'Support Anna',
+		detachedText: 'Drag me down',
+		src: 'http://localhost:8080/'
+	};
+
+	var options = (typeof __iac) ? extend(__iac, defaults) : defaults;
+
+	function extend (target, source) {
+		var output = target;
+		for (var key in source) {
+			if( source.hasOwnProperty(key) && typeof target[key] === 'undefined') {
+				output[key] = source[key];
+			}
+		}	return target;
+	}
+
 	var STATE_CLOSED = 0,
 		STATE_DETACHED = 1,
 		STATE_OPENED = 2,
@@ -15,26 +32,26 @@
 		TAG_WIDTH = 200,
 		MAX_STRAIN = 40,
 
-		// Factor of page height that needs to be dragged for the 
+		// Factor of page height that needs to be dragged for the
 		// curtain to fall
 		DRAG_THRESHOLD = 0.36;
 
 		VENDORS = [ 'Webkit', 'Moz', 'O', 'ms' ];
 
 	var dom = {
-			ribbon: null,
-			ribbonString: null,
-			ribbonTag: null,
-			curtain: null,
-			closeButton: null
-		},
+		ribbon: null,
+		ribbonString: null,
+		ribbonTag: null,
+		curtain: null,
+		closeButton: null
+	},
 
 		// The current state of the ribbon
 		state = STATE_CLOSED,
 
 		// Ribbon text, correlates to states
-		closedText = '',
-		detachedText = '',
+		closedText = options.closedText || '',
+		detachedText = options.detachedText || '',
 
 		friction = 1.04;
 		gravity = 1.5,
@@ -62,19 +79,50 @@
 
 		mouse = new Point();
 
+
+	function loadjscssfile (filename, filetype) {
+
+		var fileref;
+
+		//if filename is a external JavaScript file
+		if (filetype === "js") {
+
+			fileref = document.createElement('script');
+			fileref.setAttribute("type", "text/javascript");
+			fileref.setAttribute("src", filename);
+
+		} else if (filetype == "css") { //if filename is an external CSS file
+
+			fileref = document.createElement("link");
+			fileref.setAttribute("rel", "stylesheet");
+			fileref.setAttribute("type", "text/css");
+			fileref.setAttribute("href", filename);
+
+		}
+
+		if (typeof fileref !== "undefined") {
+			document.getElementsByTagName("head")[0].appendChild(fileref);
+		}
+
+	}
+
 	function initialize() {
 
 		dom.ribbon = document.querySelector( '.forkit' );
 		dom.curtain = document.querySelector( '.forkit-curtain' );
 		dom.closeButton = document.querySelector( '.forkit-curtain .close-button' );
 
+		loadjscssfile(options.src + '/css/forkit.css', 'css');
+
+		// customizeCss();
+
 		if( dom.ribbon ) {
 
 			// Fetch label texts from DOM
-			closedText = dom.ribbon.getAttribute( 'data-text' ) || '';
-			detachedText = dom.ribbon.getAttribute( 'data-text-detached' ) || closedText;
+			// closedText = dom.ribbon.getAttribute( 'data-text' ) || '';
+			// detachedText = dom.ribbon.getAttribute( 'data-text-detached' ) || closedText;
 
-			// Construct the sub-elements required to represent the 
+			// Construct the sub-elements required to represent the
 			// tag and string that it hangs from
 			dom.ribbon.innerHTML = '<span class="string"></span><span class="tag">' + closedText + '</span>';
 			dom.ribbonString = dom.ribbon.querySelector( '.string' );
@@ -206,7 +254,7 @@
 		// Ease towards the target position of the curtain
 		curtainCurrentY += ( curtainTargetY - curtainCurrentY ) * 0.3;
 
-		// If we're dragging or detached we need to simulate 
+		// If we're dragging or detached we need to simulate
 		// the physical behavior of the ribbon
 		if( dragging || state === STATE_DETACHED ) {
 
@@ -217,7 +265,7 @@
 			var containerOffsetX = dom.ribbon.offsetLeft;
 
 			var offsetX = Math.max( ( ( mouse.x - containerOffsetX ) - closedX ) * 0.2, -MAX_STRAIN );
-			
+
 			anchorB.x += ( ( closedX + offsetX ) - anchorB.x ) * 0.1;
 			anchorB.y += velocity;
 
@@ -298,7 +346,7 @@
 	 * Defines a 2D position.
 	 */
 	function Point( x, y ) {
-		this.x = x || 0; 
+		this.x = x || 0;
 		this.y = y || 0;
 	}
 
@@ -332,3 +380,9 @@
 
 })();
 
+
+	// function customizeCss () {
+	// 	var csstag = '<style type="text/css"> .redbold{ color:#f00; font-weight:bold;} </style>';
+
+	// 	document.getElementsByTagName("head")[0].appendChild(csstag);
+	// }
