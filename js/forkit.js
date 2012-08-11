@@ -10,7 +10,7 @@
 	var defaults = {
 		closedText : 'Support Anna',
 		detachedText: 'Drag me down',
-		src: 'http://localhost:8080/',
+		src: 'http://localhost:80/forkit.js',
 		tagBackgroundColor: "green",
 		tagColor: "white"
 	};
