@@ -119,8 +119,6 @@
 
 		loadjscssfile(options.src + '/css/iac.css', 'css');
 
-		// customizeCss();
-
 		if( dom.ribbon ) {
 
 			// Fetch label texts from DOM
