@@ -147,7 +147,7 @@
 	    var post = data.query.results.photo;
 	    var temp;
 	    for (temp in post) {
-	      var theDiv = document.getElementById("photos");
+	      var theDiv = document.getElementById("forkit-photos");
 	      // var content = document.createTextNode("<YOUR_CONTENT>");
 
 	      var curr = post[temp];
@@ -394,6 +394,7 @@
 
 		// Customizing curtain
 		dom.curtain.style.backgroundColor = options.curtainBackgroundColor;
+		dom.curtain.style.overflow = "scroll";
 	}
 
 	function prefix( property, el ) {
@@ -462,6 +463,8 @@
 
 	function installOnCurtain() {
 		if(ALLREADY_LOADED) return false;
+		ALLREADY_LOADED = true;
+
 		// Install Addthis Sharing buttons
 		loadjscssfile('http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-50269ca25571eb1f', 'js');
 

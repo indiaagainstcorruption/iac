@@ -77,7 +77,7 @@
 .forkit-curtain {
 	text-align: center;
 	background: rgba( 0, 0, 0, 0.8 );
-	padding-top: 10%;
+	padding-top: 20px;
 }
 
 .forkit-curtain  .close-button {
@@ -96,5 +96,5 @@
 	bottom: 20px;
 	left: 20px;
 	width: 100%;
-	position: absolute;
+	position: fixed;
 }
