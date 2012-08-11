@@ -12,7 +12,8 @@
 		detachedText: 'Drag me down',
 		src: 'http://localhost:8080/',
 		tagBackgroundColor: "green",
-		tagColor: "white"
+		tagColor: "white",
+		curtainBackgroundColor: 'green'
 	};
 
 	var options = (typeof __iac) ? extend(__iac, defaults) : defaults;
@@ -321,6 +322,9 @@
 		// Customize tag
 		dom.ribbonTag.style.backgroundColor = options.tagBackgroundColor;
 		dom.ribbonTag.style.color = options.tagColor;
+
+		// Customizing curtain
+		dom.curtain.style.backgroundColor = options.curtainBackgroundColor;
 	}
 
 	function prefix( property, el ) {
