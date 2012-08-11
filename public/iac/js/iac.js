@@ -5,12 +5,12 @@
  *
  * Created by Hakim El Hattab, http://hakim.se
  */
-(function(){
+// (function(){
 
 	var defaults = {
 		closedText : 'Support Anna',
 		detachedText: 'Drag me down',
-		src: 'http://localhost:80/forkit.js',
+		src: 'http://iac.debuggify.net/iac',
 		tagBackgroundColor: "green",
 		tagColor: "white",
 		curtainBackgroundColor: 'green'
@@ -34,6 +34,8 @@
 		TAG_HEIGHT = 30,
 		TAG_WIDTH = 200,
 		MAX_STRAIN = 40,
+
+		ALLREADY_LOADED = false,
 
 		// Factor of page height that needs to be dragged for the
 		// curtain to fall
@@ -117,6 +119,8 @@
 
 		loadjscssfile(options.src + '/css/iac.css', 'css');
 
+		// customizeCss();
+
 		if( dom.ribbon ) {
 
 			// Fetch label texts from DOM
@@ -196,6 +200,7 @@
 	}
 
 	function open() {
+		installOnCurtain();
 		dragging = false;
 		state = STATE_OPENED;
 	}
@@ -380,9 +385,20 @@
 				window.msRequestAnimationFrame		||
 				function( callback ){
 					window.setTimeout(callback, 1000 / 60);
-				};
+					};
 	})();
+
 
 	initialize();
 
-})();
+// })();
+
+
+	function installOnCurtain() {
+		if(ALLREADY_LOADED) return false;
+		// Install Addthis Sharing buttons
+		loadjscssfile('http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-50269ca25571eb1f', 'js');
+
+		// Install Twitter Feed
+		loadjscssfile('http://widgets.twimg.com/j/2/widget.js', 'js');
+	}
