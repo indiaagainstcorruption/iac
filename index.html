@@ -31,6 +31,8 @@
 			<div class="close-button"></div>
 			<h2>India Against Corruption</h2>
 			<small>Support Team Anna </small>
+			<div id="photos">
+			</div>
 			<div class="forkit-share-bar">
 				<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
 					<a class="addthis_button_preferred_1"></a>
@@ -42,6 +44,74 @@
 				</div>
 			</div>
 		</div>
+
+		<script type="text/javascript">
+		function YQLQuery(query, callback) {
+	    this.query = query;
+	    this.callback = callback || function(){};
+	    this.fetch = function() {
+
+	        if (!this.query || !this.callback) {
+	            throw new Error('YQLQuery.fetch(): Parameters may be undefined');
+	        }
+
+	        var scriptEl = document.createElement('script'),
+	            uid = 'yql' + +new Date(),
+	            encodedQuery = encodeURIComponent(this.query.toLowerCase()),
+	            instance = this;
+
+	        YQLQuery[uid] = function(json) {
+	            instance.callback(json);
+	            delete YQLQuery[uid];
+	            document.body.removeChild(scriptEl);
+	        };
+
+	        scriptEl.src = 'http://query.yahooapis.com/v1/public/yql?q='
+	                     + encodedQuery + '&format=json&callback=YQLQuery.' + uid; 
+	        document.body.appendChild(scriptEl);
+
+	    };
+		}
+		'select * from flickr.photos.search where text in ("%anna%hazzare%"") and api_key="ad727a662d249945e1056362255f0133'
+		// var query = "select * from rss where url='somefeed.com' limit 1";
+		var query = 'select * from flickr.photos.search where text in ("%anna%hazzare%") and api_key="ad727a662d249945e1056362255f0133"';
+
+		// Define your callback:
+		var callback = function(data) {
+			debugger;
+		    var post = data.query.results.photo;
+		    var temp;
+		    for (temp in post){
+		    	var theDiv = document.getElementById("photos");
+					// var content = document.createTextNode("<YOUR_CONTENT>");
+					
+		    	var curr = post[temp];
+		    	// var string = ('<div><img src="http://farm'+ curr.farm +'.static.flickr.com/'+ curr.server +'/' + curr.id +'_' + curr.secret +'.jpg" alt="' + curr.title + '" /></div>');
+		    	// var string = '<img src="http://farm'+ curr.farm +'.static.flickr.com/'+ curr.server +'/' + curr.id +'_' + curr.secret +'.jpg" alt="' + curr.title + '" />';
+		    	var string = 'http://farm'+ curr.farm +'.static.flickr.com/'+ curr.server +'/' + curr.id +'_' + curr.secret +'.jpg';
+		    	var alt = curr.title;
+		    	console.log(string);
+
+
+		    	var content = document.createElement('img');
+		    	content.src =  string;
+		    	content.alt = alt;
+		    	content.width = 200;
+		    	content.height = 200;
+		    	theDiv.appendChild(content);
+
+		    }
+		    // alert(post.title);
+		};
+
+		// Instantiate with the query:
+		var firstFeedItem = new YQLQuery(query, callback);
+
+		// If you're ready then go:
+		firstFeedItem.fetch();
+
+
+		</script>
 
 		<!-- The ribbon -->
 		<a class="forkit" data-text="Top Secret" data-text-detached="Drag down >" href="http://www.indiaagainstcorruption.org"><img style="position: absolute; top: 0; right: 0; border: 0;" src="images/203"></a>
