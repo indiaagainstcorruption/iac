@@ -115,9 +115,7 @@
 		dom.curtain = document.querySelector( '.forkit-curtain' );
 		dom.closeButton = document.querySelector( '.forkit-curtain .close-button' );
 
-		loadjscssfile(options.src + '/css/forkit.css', 'css');
-
-		// customizeCss();
+		loadjscssfile(options.src + '/css/iac.css', 'css');
 
 		if( dom.ribbon ) {
 
@@ -388,10 +386,3 @@
 	initialize();
 
 })();
-
-
-	// function customizeCss () {
-	// 	var csstag = '<style type="text/css"> .redbold{ color:#f00; font-weight:bold;} </style>';
-
-	// 	document.getElementsByTagName("head")[0].appendChild(csstag);
-	// }
