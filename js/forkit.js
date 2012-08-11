@@ -10,7 +10,9 @@
 	var defaults = {
 		closedText : 'Support Anna',
 		detachedText: 'Drag me down',
-		src: 'http://localhost:8080/'
+		src: 'http://localhost:8080/',
+		tagBackgroundColor: "green",
+		tagColor: "white"
 	};
 
 	var options = (typeof __iac) ? extend(__iac, defaults) : defaults;
@@ -316,6 +318,9 @@
 		dom.ribbonString.style.width = anchorB.y + 'px';
 		dom.ribbonString.style[ prefix( 'transform' ) ] = transform( anchorA.x, 0, angle );
 
+		// Customize tag
+		dom.ribbonTag.style.backgroundColor = options.tagBackgroundColor;
+		dom.ribbonTag.style.color = options.tagColor;
 	}
 
 	function prefix( property, el ) {
