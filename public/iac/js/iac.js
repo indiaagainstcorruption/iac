@@ -86,6 +86,30 @@
 		mouse = new Point();
 
 
+
+	function curtainTemplate() {
+		return '<div class="close-button"></div>' +
+			'<h2>India Against Corruption</h2>' +
+			'<small>Support Team Anna </small>' +
+			'<div id="forkit-photos"></div>' +
+
+			'<div class="forkit-share-bar">' +
+				'<div class="forkit-left addthis_toolbox addthis_default_style addthis_32x32_style" addthis:url="http://news.indiaagainstcorruption.org/" addthis:title="India Againt Corruption" addthis:description="Support Team Anna to fight against corruption">' +
+					'<a class="addthis_button_preferred_1"></a>' +
+					'<a class="addthis_button_preferred_2"></a>' +
+					'<a class="addthis_button_preferred_3"></a>' +
+					'<a class="addthis_button_preferred_4"></a>' +
+					'<a class="addthis_button_compact"></a>' +
+					'<a class="addthis_counter addthis_bubble_style"></a>' +
+				'</div>' +
+
+				'<div class="forkit-right">' +
+					'<a href="https://github.com/indiaagainstcorruption/iac">Github</a>' +
+					'<a href="https://www.facebook.com/IndiACor">Facebook</a>' +
+				'</div>'  +
+			'</div>';
+	}
+
 	function loadjscssfile (filename, filetype) {
 
 		var fileref;
@@ -204,6 +228,9 @@
 		dom.ribbon = document.querySelector( '.forkit' );
 		dom.curtain = document.querySelector( '.forkit-curtain' );
 		dom.closeButton = document.querySelector( '.forkit-curtain .close-button' );
+
+		// Applying the template in the curtain
+		dom.curtain.innerHTML = curtainTemplate();
 
 		loadjscssfile(options.src + '/css/iac.css', 'css');
 
@@ -532,7 +559,7 @@
 		// Install Twitter Feed
 		loadjscssfile('http://widgets.twimg.com/j/2/widget.js', 'js');
 		installPhotoes();
-		installVideos();
+		// installVideos();
 
-		installTwitterFeed();
+		// installTwitterFeed();
 	}
