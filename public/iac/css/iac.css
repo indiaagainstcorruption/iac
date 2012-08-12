@@ -108,3 +108,16 @@
 .forkit-right{
 	float:right;
 }
+
+.forkit-container{
+	/*width: 100%;*/
+	padding: 20px;
+	display: inline-block;
+}
+
+.forkit-container div {
+	display: inline-block;
+}
+.forkit-container .forkit-left{
+	margin-right: 300px;
+}

@@ -34,8 +34,74 @@
 			<div class="close-button"></div>
 			<h2>India Against Corruption</h2>
 			<small>Support Team Anna </small>
-			<div id="forkit-photos"></div>
-			<div id="forkit-videos" style="display:none">
+			<div class="forkit-container">
+				<div class="forkit-left" id="forkit-photos"></div>
+				<div class="forkit-right">
+					<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+					<script>
+					new TWTR.Widget({
+					  version: 2,
+					  type: 'search',
+					  search: '#iac',
+					  interval: 30000,
+					  title: 'India Against Corruption',
+					  subject: 'Fight for freedom',
+					  width: 250,
+					  height: 300,
+					  theme: {
+					    shell: {
+					      background: '#8ec1da',
+					      color: '#ffffff'
+					    },
+					    tweets: {
+					      background: '#ffffff',
+					      color: '#444444',
+					      links: '#1985b5'
+					    }
+					  },
+					  features: {
+					    scrollbar: false,
+					    loop: true,
+					    live: true,
+					    behavior: 'default'
+					  }
+					}).render().start();
+					</script>
+				</div>
+			<!-- 	<div class="forkit-right">
+					<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+					<script>
+					new TWTR.Widget({
+					  version: 2,
+					  type: 'search',
+					  search: '#iac',
+					  interval: 30000,
+					  title: 'India Against Corruption',
+					  subject: 'Fight for freedom',
+					  width: 'auto',
+					  height: 200,
+					  theme: {
+					    shell: {
+					      background: '#8ec1da',
+					      color: '#ffffff'
+					    },
+					    tweets: {
+					      background: '#ffffff',
+					      color: '#444444',
+					      links: '#1985b5'
+					    }
+					  },
+					  features: {
+					    scrollbar: false,
+					    loop: true,
+					    live: true,
+					    behavior: 'default'
+					  }
+					}).render().start();
+					</script>
+				</div> -->
+				<div id="forkit-videos" style="display:none">
+				</div>
 			</div>
 			<div class="forkit-share-bar">
 				<div class="forkit-left addthis_toolbox addthis_default_style addthis_32x32_style"
@@ -74,4 +140,4 @@
 		<script src="public/iac/js/iac.js"></script>
 
 	</body>
-</html>
+	</html>
