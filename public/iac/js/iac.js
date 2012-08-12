@@ -91,7 +91,7 @@
 		return '<div class="close-button"></div>' +
 			'<h2>India Against Corruption</h2>' +
 			'<small>Support Team Anna </small>' +
-			'<div id="forkit-container">' +
+			'<div class="forkit-container">' +
 			'<div class="forkit-left" id="forkit-photos"></div>' +
 			'<div class="forkit-right" id="forkit-twitter-div"></div>' +
 			'</div>' +
