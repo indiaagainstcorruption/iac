@@ -116,7 +116,10 @@
 					<a class="addthis_counter addthis_bubble_style"></a>
 				</div>
 
-				<div class="forkit-right">View project on <a href="https://github.com/indiaagainstcorruption/iac">Github</img></a></div>
+				<div class="forkit-right">
+					<a href="https://github.com/indiaagainstcorruption/iac">Github</a>
+					<a href="https://www.facebook.com/IndiACor">Facebook</a>
+				</div>
 			</div>
 			<script type="text/javascript" src="http://webplayer.yahooapis.com/player.js"></script>
 		</div>
@@ -131,13 +134,22 @@
 				detachedText: 'Drag me down',
 				tagBackgroundColor: 'red',
 				tagColor: 'black',
-				curtainBackgroundColor: 'green',
+				curtainBackgroundColor: 'gray',
 				prefetch: true,
 				src: document.location.href + 'public/iac'
 			};
 
+			(function() {
+		    var iac = document.createElement('script');
+		    iac.type = 'text/javascript';
+		    iac.async = true;
+		    iac.src = 'public/iac/js/iac.js';
+		    var s = document.getElementsByTagName('script')[0];
+		    s.parentNode.insertBefore(iac, s);
+		  })();
+
+
 		</script>
-		<script src="public/iac/js/iac.js"></script>
 
 	</body>
 	</html>
