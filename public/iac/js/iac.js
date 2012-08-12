@@ -91,10 +91,10 @@
 		return '<div class="close-button"></div>' +
 			'<h2>India Against Corruption</h2>' +
 			'<small>Support Team Anna </small>' +
-			'<div class="forkit-container">' +
-			'<div class="forkit-left" id="forkit-photos"></div>' +
-			'<div class="forkit-right" id="forkit-twitter-div"></div>' +
-			'</div>' +
+			// '<div class="forkit-container">' +
+			'<div class="" id="forkit-photos"></div>' +
+			'<div class="" id="forkit-twitter-div"></div>' +
+			// '</div>' +
 
 
 			'<div class="forkit-share-bar">' +
@@ -531,7 +531,7 @@
 		  interval: 30000,
 		  title: 'India Against Corruption',
 		  subject: 'Fight for freedom',
-		  width: 250,
+		  width: '100%',
 		  height: 300,
 		  theme: {
 		    shell: {

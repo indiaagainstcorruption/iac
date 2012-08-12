@@ -119,6 +119,10 @@
 .forkit-container div {
 	display: inline-block;
 }
-.forkit-container .forkit-left{
-	margin-right: 300px;
+.forkit-container .forkit-right{
+	margin-left: 300px;
+}
+
+#forkit-twitter-div {
+	padding: 20px;
 }
