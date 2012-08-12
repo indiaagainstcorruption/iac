@@ -29,16 +29,19 @@
 		</article>
 
 		<!-- The contents (if there's no contents the ribbon acts as a link) -->
+
 		<div class="forkit-curtain">
 			<div class="close-button"></div>
 			<h2>India Against Corruption</h2>
 			<small>Support Team Anna </small>
-			<div id="photos">
-			</div>
+			<div id="forkit-photos"></div>
 			<div id="forkit-videos" style="display:none">
 			</div>
 			<div class="forkit-share-bar">
-				<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+				<div class="forkit-left addthis_toolbox addthis_default_style addthis_32x32_style"
+					addthis:url="http://news.indiaagainstcorruption.org/"
+	        addthis:title="India Againt Corruption"
+	        addthis:description="Support Team Anna to fight against corruption">
 					<a class="addthis_button_preferred_1"></a>
 					<a class="addthis_button_preferred_2"></a>
 					<a class="addthis_button_preferred_3"></a>
@@ -46,6 +49,8 @@
 					<a class="addthis_button_compact"></a>
 					<a class="addthis_counter addthis_bubble_style"></a>
 				</div>
+
+				<div class="forkit-right">View project on <a href="https://github.com/indiaagainstcorruption/iac">Github</img></a></div>
 			</div>
 			<script type="text/javascript" src="http://webplayer.yahooapis.com/player.js"></script>
 		</div>
@@ -61,6 +66,7 @@
 				tagBackgroundColor: 'red',
 				tagColor: 'black',
 				curtainBackgroundColor: 'green',
+				prefetch: true,
 				src: document.location.href + 'public/iac'
 			};
 
