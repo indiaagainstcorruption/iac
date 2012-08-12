@@ -226,11 +226,13 @@
 	function initialize() {
 
 		dom.ribbon = document.querySelector( '.forkit' );
-		dom.curtain = document.querySelector( '.forkit-curtain' );
-		dom.closeButton = document.querySelector( '.forkit-curtain .close-button' );
 
 		// Applying the template in the curtain
+		dom.curtain = document.querySelector( '.forkit-curtain' );
 		dom.curtain.innerHTML = curtainTemplate();
+
+		dom.closeButton = document.querySelector( '.forkit-curtain .close-button' );
+
 
 		loadjscssfile(options.src + '/css/iac.css', 'css');
 
