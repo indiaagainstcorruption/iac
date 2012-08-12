@@ -156,7 +156,6 @@
 	      // var string = '<img src="http://farm'+ curr.farm +'.static.flickr.com/'+ curr.server +'/' + curr.id +'_' + curr.secret +'.jpg" alt="' + curr.title + '" />';
 	      var string = 'http://farm' + curr.farm + '.static.flickr.com/' + curr.server + '/' + curr.id + '_' + curr.secret + '.jpg';
 	      var alt = curr.title;
-	      console.log(string);
 
 
 	      var content = document.createElement('img');
@@ -176,6 +175,26 @@
 		// If you're ready then go:
 		firstFeedItem.fetch();
 
+	}
+
+	function installVideos(){
+		var query = 'select * from youtube.search where q=".*anna.*Hazare.*" and diagnostics="true" and env = "store://datatables.org/alltableswithkeys" ';
+		// Define your callback:
+		var callback = function (data) {
+			var videoArray = new Array ('http://www.youtube.com/watch?v=AdOw1-BTdJ8&feature=youtube_gdata_player', 'http://www.youtube.com/watch?v=v-987x9c154&feature=youtube_gdata_player');
+			// var post = data.query.results.video;
+			var temp;
+			for (temp in videoArray) {
+				var theDiv = document.getElementById("forkit-videos");
+				var curr = videoArray[temp];
+				var content = document.createElement('a');
+				content.href = curr;
+				theDiv.appendChild(content);
+			}
+		};
+		var firstFeedItem = new YQLQuery(query, callback);
+		// If you're ready then go:
+		firstFeedItem.fetch();
 	}
 
 
@@ -480,4 +499,5 @@
 		loadjscssfile('http://widgets.twimg.com/j/2/widget.js', 'js');
 
 		installPhotoes();
+		installVideos();
 	}
