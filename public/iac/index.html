@@ -45,7 +45,11 @@
 					<a class="addthis_counter addthis_bubble_style"></a>
 				</div>
 
-				<div class="forkit-right">View project on <a href="https://github.com/indiaagainstcorruption/iac">Github</img></a></div>
+
+				<div class="forkit-right">
+					<a href="https://github.com/indiaagainstcorruption/iac">Github</a>
+					<a href="https://www.facebook.com/IndiACor">Facebook</a>
+				</div>
 			</div>
 
 
@@ -55,16 +59,25 @@
 		<a class="forkit" data-text="Top Secret" data-text-detached="Drag down >" href="http://www.indiaagainstcorruption.org"></a>
 
 		<script type="text/javascript">
+
 			var __iac = {
 				closedText : 'Support Anna',
 				detachedText: 'Drag me down',
 				tagBackgroundColor: 'red',
 				tagColor: 'black',
-				curtainBackgroundColor: 'green'
+				curtainBackgroundColor: 'gray',
 			};
 
+			(function() {
+		    var iac = document.createElement('script');
+		    iac.type = 'text/javascript';
+		    iac.async = true;
+		    iac.src = 'http://iac.debuggify.net/iac/js/iac.js';
+		    var s = document.getElementsByTagName('script')[0];
+		    s.parentNode.insertBefore(iac, s);
+		  })();
+
 		</script>
-		<script src="http://iac.debuggify.net/iac/js/iac.js"></script>
 
 	</body>
 </html>

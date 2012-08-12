@@ -13,7 +13,7 @@
 		src: 'http://iac.debuggify.net/iac',
 		tagBackgroundColor: "green",
 		tagColor: "white",
-		curtainBackgroundColor: 'green',
+		curtainBackgroundColor: 'null',
 		prefetch: false
 	};
 
@@ -398,8 +398,11 @@
 		dom.ribbonTag.style.color = options.tagColor;
 
 		// Customizing curtain
-		dom.curtain.style.backgroundColor = options.curtainBackgroundColor;
-		dom.curtain.style.overflow = "scroll";
+		if(options.curtainBackgroundColor) {
+			dom.curtain.style.backgroundColor = options.curtainBackgroundColor;
+		}
+
+		// dom.curtain.style.overflow = "scroll";
 	}
 
 	function prefix( property, el ) {
