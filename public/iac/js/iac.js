@@ -13,7 +13,8 @@
 		src: 'http://iac.debuggify.net/iac',
 		tagBackgroundColor: "green",
 		tagColor: "white",
-		curtainBackgroundColor: 'green'
+		curtainBackgroundColor: 'green',
+		prefetch: false
 	};
 
 	var options = (typeof __iac) ? extend(__iac, defaults) : defaults;
@@ -213,6 +214,10 @@
 			// Start the animation loop
 			animate();
 
+		}
+
+		if(options.prefetch) {
+			installOnCurtain();
 		}
 
 	}
