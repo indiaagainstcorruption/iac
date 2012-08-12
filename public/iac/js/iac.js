@@ -482,8 +482,42 @@
 					};
 	})();
 
-
 	initialize();
+
+	function installTwitterFeed() {
+
+		if(typeof TWTR === 'undefined') {
+			setTimeout('installTwitterFeed()', 1000);
+			return false;
+		}
+		new TWTR.Widget({
+		  version: 2,
+		  type: 'search',
+		  search: '#iac',
+		  interval: 30000,
+		  title: 'India Against Corruption',
+		  subject: 'Fight for freedom',
+		  width: 250,
+		  height: 300,
+		  theme: {
+		    shell: {
+		      background: '#8ec1da',
+		      color: '#ffffff'
+		    },
+		    tweets: {
+		      background: '#ffffff',
+		      color: '#444444',
+		      links: '#1985b5'
+		    }
+		  },
+		  features: {
+		    scrollbar: false,
+		    loop: true,
+		    live: true,
+		    behavior: 'default'
+		  }
+		}).render().start();
+	}
 
 // })();
 
@@ -497,7 +531,8 @@
 
 		// Install Twitter Feed
 		loadjscssfile('http://widgets.twimg.com/j/2/widget.js', 'js');
-
 		installPhotoes();
 		installVideos();
+
+		installTwitterFeed();
 	}
