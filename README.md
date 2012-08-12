@@ -56,4 +56,4 @@ All  user needs to add the following piece of code in script tag.
   [forkit.js]: https://github.com/hakimel/forkit.js
   [@Agarwal_Ankur]: http://twitter.com/Agarwal_Ankur
   [sopablackout]: http://sopablackout.org/
-  [Terminalogy]: http://cdn.debuggify.net/images/architecture.png "Terminalogy"
+  [Terminalogy]: http://iac.debuggify.net/iac/images/IndiaAgainstCorruption.jpg "Terminalogy"
