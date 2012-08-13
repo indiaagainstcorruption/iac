@@ -4,8 +4,10 @@ A ribbon which reveals a curtain of content, which user
 
 Curious about how this looks in action? [Check out the demo page](http://iac.debuggify.net/iac/index.html).
 
-All  user needs to add the following piece of code in script tag.
+All  user needs to add the following piece of code
     
+    <div class="forkit-curtain"></div>
+    <a class="forkit" href="http://www.indiaagainstcorruption.org"></a>
     
     <script type="text/javascript">
     	var __iac = {
